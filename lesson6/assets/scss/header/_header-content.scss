@@ -1,0 +1,73 @@
+.header-content {
+   position: relative;
+
+   &__container {
+     @extend %container;
+     display: grid;
+   }
+
+   &__title {
+     text-align: center;
+     
+     @include lg  {
+      margin: 0 0 43px;
+    }
+
+     @include lg-min {
+       margin: 0 0 53px;
+     }
+   }
+
+   &__buttons {
+     display: flex;
+     justify-content: center;
+
+     @include sm-min {
+       .btn:first-of-type {
+         margin-right: $gap;
+       }
+     }     
+
+     .btn {
+       border-color: #ffffff;
+       background-color: rgba(255, 255, 255, 0.1);
+       min-width: 250px;
+       margin-right: 20px;
+       display: block;
+       height: 60px;
+       padding: 18px 20px;
+       transition: background-color 0.5s, border-color 0.5s;
+       text-align: center;
+       letter-spacing: 0.1em;
+       border-width: 2px;
+       border-style: solid;
+       font-size: 1.125rem;
+       text-decoration: none;
+       color: $color-light;
+
+       @include md {
+        min-width: 170px;
+        font-size: 1rem;
+        height: 40px;
+        padding: 9px 20px;
+      }
+
+      @include lg-md {
+          min-width: 200px;
+          font-size: 1rem;
+          height: 50px;
+          padding: 14px 20px;
+      }
+     }
+
+     .btn:hover {
+       background-color: #d66926;
+     }
+   }
+ }
+
+ .header-content__buttons .btn {
+  margin-right: 20px;
+ }
+
+

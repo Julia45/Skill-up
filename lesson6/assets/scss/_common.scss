@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $font-size;
+  font-family: $font-main;
+  letter-spacing: 0.1em;
+  overflow-y: scroll;
+  color: $color-gray;
+  line-height: 1.15;
+}
+
+@mixin lg  {
+  @media (min-width: $lg + 1)  {
+    @content;
+  }
+}
+
+@mixin lg-md {
+  @media (max-width: $lg) and (min-width: $md + 1) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: $md) {
+    @content;
+  }
+}
+
+
+h1 {
+  font-family: $font-header;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  line-height: 1.2em;
+  margin: 0;
+  padding: 0;
+
+  @include lg {
+    font-size: 3.75rem;
+  }
+
+  @include lg-md {
+    font-size: 3.75rem;
+  }
+
+  @include md {
+    font-size: 1.875rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .btn {
+    background-color: rgba(255, 255, 255, 0.1%);
+    border: 2px solid white;
+    display: block;
+    transition: background-color 0.5s;
+    text-align: center;
+    letter-spacing: 0.1em;
+    padding: 18px $gap;
+
+    @include lg-min {
+      height: 60px;
+      padding: 18px 20px;
+      font-size: 1.125rem;
+      min-width: 250px;
+    }
+
+    @include lg-md {
+      min-width: 200px;
+      font-size: 1rem;
+      height: 50px;
+      padding: 14px 20px;
+    }
+
+    @include md {
+      min-width: 170px;
+      font-size: 1rem;
+      height: 40px;
+      padding: 9px 20px;
+    }
+  }
+
+  .btn-accent {
+    background-color: rgba($color-primary, 0.8%);
+    border: 2px solid $color-primary;
+
+    display: block;
+    transition: background-color 0.5s;
+    text-align: center;
+    letter-spacing: 0.1em;
+    padding: 18px $gap;
+    height: 60px;
+
+    @include sm-min {
+      min-width: 350px;
+    }
+
+    @include sm {
+      width: 100%
+    }
+  }
+
+  .btn:hover, .btn-accent:hover {
+    background-color: $color-accent;
+  }
+}
