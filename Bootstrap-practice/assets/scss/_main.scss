@@ -10,63 +10,76 @@
   }
 }
 
-.new-films-row {
-  margin-left: -$gap / 2;
-  margin-right: -$gap / 2;
-}
-
-
-.new-films-item {
-  margin-bottom: $gap;
-  padding-left: $gap / 2;
-  padding-right: $gap / 2;
-
-  &__title {
-    @include text-shortener;
-    font-size: 16px;
-    line-height: 23px;
-    font-weight: bold;
-    text-align: center;
-    margin: 0;
-  }
-
-  &__thumbnail {
-    margin-bottom: 0
-  }
-}
 
 .new-films {
+  @extend %block-positioning;
+
   h1 {
     font-size: 3rem;
-    font-family: "PT Serif", serif;
+    font-family: $font-header;
     margin: -7.5px 0 45px;
 
     &:after {
       position: absolute;
-      width: 60%;
+      width: 100%;
       margin: 0.85em 0 0 15px;
       content: "";
       border-bottom: 3px solid rgba(240, 173, 79, 0.7);
     }
   }
 
-  &-item__thumbnail {
-    &:hover {
-      background-color: $color-accent;
+  &-row {
+    margin-left: -$gap / 2;
+    margin-right: -$gap / 2;
+  }
+
+  &-item {
+    margin-bottom: $gap;
+    padding-left: $gap / 2;
+    padding-right: $gap / 2;
+
+    &__image {
+      width: 100%;
+    }
+
+    &__title {
+      @include text-shortener;
+      font-size: $font-size;
+      font-weight: bold;
+      text-align: center;
+      margin: 0;
+    }
+
+    &__thumbnail {
+      transition: background-color 0.5s;
+      margin-bottom: 0;
+
+      &:hover {
+        background-color: $color-accent;
+
+        .new-films-item__title {
+          color: white;
+        }
+      }
     }
   }
 }
 
+.thumbnail {
+  margin-bottom: 20px;
+}
 
 .top-films {
+  @extend %block-positioning;
+
   h2 {
     font-size: 2.5rem;
     margin: 60px 0 45px 45px;
-    font-family: "PT Serif", serif;
+    font-family: $font-header;
 
     &:after {
       position: absolute;
-      width: 60%;
+      width: 100%;
       margin: 0.85em 0 0 15px;
       content: "";
       border-bottom: 3px solid rgba(240, 173, 79, 0.7);
@@ -84,12 +97,11 @@
 }
 
 .film-news {
-  position: relative;
-  overflow: hidden;
+  @extend %block-positioning;
 
   h2 {
     margin: 60px 0 45px 45px;
-    font-family: "PT Serif", serif;
+    font-family: $font-header;
     font-size: 2.5rem;
 
     &:before {
@@ -103,7 +115,7 @@
 
     &:after {
       position: absolute;
-      width: 60%;
+      width: 100%;
       margin: 0.85em 0 0 15px;
       content: "";
       border-bottom: 3px solid rgba(240, 173, 79, 0.7);
@@ -124,15 +136,16 @@
 
       .thumbnail {
         background-color: #f0ad4f;
-    }
+      }
     }
 
     h3 {
       margin-top: 20px;
       margin-bottom: 10px;
 
-  
+
     }
+
     &__text {
       text-align: justify;
 
@@ -144,32 +157,32 @@
 
     &__button {
       float: right;
-    margin-bottom: 30px;
-    transition: background-color 0.25s;
+      margin-bottom: 30px;
+      transition: background-color 0.25s;
 
-    .btn-warning {
-    color: #fff;
-    background-color: #f0ad4e;
-    border-color: #eea236;
-    }
+      .btn-warning {
+        color: #fff;
+        background-color: #f0ad4e;
+        border-color: #eea236;
+      }
 
-    .btn {
-      display: inline-block;
-    margin-bottom: 0;
-    font-weight: 400;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    touch-action: manipulation;
-    cursor: pointer;
-    background-image: none;
-    border: 1px solid transparent;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    border-radius: 4px;
-    user-select: none;
-    }
+      .btn {
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 4px;
+        user-select: none;
+      }
     }
   }
 
@@ -179,15 +192,15 @@
 
     &:before {
       display: table;
-    content: " ";
+      content: " ";
     }
 
     .col-sm-4,
     .col-sm-8 {
       position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+      min-height: 1px;
+      padding-right: 15px;
+      padding-left: 15px;
     }
   }
 
@@ -201,12 +214,10 @@
 
     img {
       margin-right: auto;
-    margin-left: auto;
-    display: block;
-    max-width: 100%;
-    height: auto;
+      margin-left: auto;
+      display: block;
+      max-width: 100%;
+      height: auto;
     }
-
   }
-
 }

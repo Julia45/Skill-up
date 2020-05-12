@@ -1,4 +1,7 @@
 .film-video {
+  overflow: hidden;
+  position: relative;
+
   h1 {
     font-size: 3rem;
     margin: -7.5px 0 45px;
@@ -6,7 +9,7 @@
 
     &:after {
       position: absolute;
-      width: 45%;
+      width: 100%;
       margin: 0.85em 0 0 15px;
       content: "";
       border-bottom: 3px solid rgba(240, 173, 79, 0.7);
@@ -80,9 +83,10 @@
 }
 
 .film-description {
+  overflow: hidden;
+  position: relative;
 
   h2 {
-
     font-size: 2.5rem;
     margin: 60px 0 45px 45px;
     font-family: "PT Serif", serif;
@@ -98,7 +102,7 @@
 
     &:after {
       position: absolute;
-      width: 45%;
+      width: 100%;
       margin: 0.85em 0 0 15px;
       content: "";
       border-bottom: 3px solid rgba(240, 173, 79, 0.7);
@@ -145,6 +149,8 @@
 }
 
 .leave-comment {
+  position: relative;
+  overflow: hidden;
 
   h2 {
     font-size: 2.5rem;
