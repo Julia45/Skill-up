@@ -43,6 +43,10 @@
   margin-right: auto;
   margin-left: auto;
 
+  @include lg-min {
+    width: 1170px;
+  }
+
   @include md-min {
     width: 970px;
   }
@@ -58,19 +62,23 @@
   }
 }
 
-
-
-.col-xs-6 {
+.col-sm-4 {
   @include md-min {
+    width: 33.33333333%;
+  }
+}
+
+.col-lg-3 {
+  @include lg-min {
     width: 25%;
   }
+}
 
+.col-xs-6 {
   float: left;
-  width: 50%;
   position: relative;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
+
 }
 
 .footer-bottom {
