@@ -302,5 +302,6 @@ textarea {
 .col-md-3 {
   @include md-min {
     width: 25%;
+    float: left;
   }
 }
