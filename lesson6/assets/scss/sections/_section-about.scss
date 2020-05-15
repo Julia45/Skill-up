@@ -1,8 +1,11 @@
 .about {
   background-color: rgb(229, 229, 229);
-  padding-top: 100px;
-  padding-bottom: 100px;
   letter-spacing: 0.055em;
+
+  @include lg-min {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
 
   @include lg-md {
     padding-top: 80px;
@@ -14,14 +17,19 @@
     padding-bottom: 60px;
   }
 
+  h2 {
+    margin-top: 0;
+  }
+
   &-container {
     display: grid;
     padding-right: 20px;
     padding-left: 20px;
-    row-gap: 100px;
-    column-gap: 100px;
-    grid-template-columns: 1fr 271px;
 
+    @include lg-min {
+      grid-gap: 100px;
+      grid-template-columns: 1fr 271px;
+    }
 
     @include lg-md {
       grid-gap: 40px;
@@ -42,6 +50,11 @@
     display: grid;
     align-content: center;
     justify-items: center;
+
+    img {
+      max-width: 100%;
+    max-height: 480px;
+    }
   }
 
   .content-title {
@@ -70,9 +83,22 @@
   }
 
   &-content {
+
     letter-spacing: 0.055em;
 
+
     p {
+
+      position: relative;
+
+      &:first-of-type {
+        position: relative;
+        margin-top: -5px;
+      }
+
+      &:last-of-type {
+        margin: 0;
+      }
 
       @include lg {
         font-size: 1.125rem;
@@ -80,29 +106,34 @@
       color: #637588;
     }
   }
-
-
 }
 
-.lamp {
-  max-width: 100%;
-  max-height: 490px;
-  border-style: none;
-}
-
-
-.about-content p:first-of-type {
-  position: relative;
-  margin-top: -5px;
-}
 
 .about-content p:first-of-type::after {
+  @include lg-min {
+    right: -50px;
+  }
+
+  @include lg-md {
+    right: -20px;
+  }
+
+  @include md-sm {
+    right: -10px;
+  }
+
+  @include sm {
+    display: none;
+  }
+
+
   position: absolute;
   top: 0;
   width: 2px;
   height: 200px;
   content: "";
   background-color: rgba(99, 117, 136, 0.1);
+
 }
 
  

@@ -9,7 +9,7 @@ html {
   overflow-y: scroll;
   color: $color-gray;
   line-height: 1.15;
-}
+
 
 @mixin lg  {
   @media (min-width: $lg + 1)  {
@@ -27,6 +27,7 @@ html {
   @media (max-width: $md) {
     @content;
   }
+}
 }
 
 
@@ -55,7 +56,9 @@ h1 {
     color: white;
   }
 
-  .btn {
+  }
+
+  .header-content__buttons .btn {
     background-color: rgba(255, 255, 255, 0.1%);
     border: 2px solid white;
     display: block;
@@ -81,6 +84,7 @@ h1 {
     @include md {
       min-width: 170px;
       font-size: 1rem;
+      letter-spacing: 0.05em;
       height: 40px;
       padding: 9px 20px;
     }
@@ -89,7 +93,6 @@ h1 {
   .btn-accent {
     background-color: rgba($color-primary, 0.8%);
     border: 2px solid $color-primary;
-
     display: block;
     transition: background-color 0.5s;
     text-align: center;
@@ -97,9 +100,6 @@ h1 {
     padding: 18px $gap;
     height: 60px;
 
-    @include sm-min {
-      min-width: 350px;
-    }
 
     @include sm {
       width: 100%
@@ -109,4 +109,3 @@ h1 {
   .btn:hover, .btn-accent:hover {
     background-color: $color-accent;
   }
-}

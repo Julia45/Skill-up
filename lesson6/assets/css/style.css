@@ -498,7 +498,7 @@ h1 a {
   color: white;
 }
 
-h1 .btn {
+.header-content__buttons .btn {
   background-color: rgba(255, 255, 255, 0.1);
   border: 2px solid white;
   display: block;
@@ -510,7 +510,7 @@ h1 .btn {
   padding: 18px 20px;
 }
 
-h1 .btn-accent {
+.btn-accent {
   background-color: rgba(45, 54, 81, 0.8);
   border: 2px solid #2d3651;
   display: block;
@@ -523,7 +523,7 @@ h1 .btn-accent {
   height: 60px;
 }
 
-h1 .btn:hover, h1 .btn-accent:hover {
+.btn:hover, .btn-accent:hover {
   background-color: #d66926;
 }
 
@@ -637,25 +637,25 @@ h1 .btn:hover, h1 .btn-accent:hover {
   top: 18px;
 }
 
-.header-navbar__hamburger.active.span:nth-child(1) {
+.header-navbar__hamburger.active span:nth-child(1) {
   top: 9px;
   width: 0%;
   left: 50%;
 }
 
-.header-navbar__hamburger.active.span:nth-child(2) {
+.header-navbar__hamburger.active span:nth-child(2) {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
-.header-navbar__hamburger.active.span:nth-child(3) {
+.header-navbar__hamburger.active span:nth-child(3) {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 
-.header-navbar__hamburger.active.span:nth-child(4) {
+.header-navbar__hamburger.active span:nth-child(4) {
   top: 9px;
   width: 0%;
   left: 50%;
@@ -671,6 +671,7 @@ h1 .btn:hover, h1 .btn-accent:hover {
   display: block;
   position: absolute;
   top: 100%;
+  margin-right: 1px;
   text-align: right;
   right: 20px;
   background-color: rgba(68, 89, 110, 0.9);
@@ -726,7 +727,6 @@ h1 .btn:hover, h1 .btn-accent:hover {
   border-color: #ffffff;
   background-color: rgba(255, 255, 255, 0.1);
   min-width: 250px;
-  margin-right: 20px;
   display: block;
   height: 60px;
   padding: 18px 20px;
@@ -744,10 +744,6 @@ h1 .btn:hover, h1 .btn-accent:hover {
 
 .header-content__buttons .btn:hover {
   background-color: #d66926;
-}
-
-.header-content__buttons .btn {
-  margin-right: 20px;
 }
 
 .skills__container {
@@ -778,7 +774,6 @@ h1 .btn:hover, h1 .btn-accent:hover {
   border-width: 2px;
   border-style: solid;
   font-size: 1.125rem;
-  min-width: 350px;
   color: #ffffff;
   text-decoration: none;
 }
@@ -914,20 +909,17 @@ h1 .btn:hover, h1 .btn-accent:hover {
 
 .about {
   background-color: #e5e5e5;
-  padding-top: 100px;
-  padding-bottom: 100px;
   letter-spacing: 0.055em;
+}
+
+.about h2 {
+  margin-top: 0;
 }
 
 .about-container {
   display: grid;
   padding-right: 20px;
   padding-left: 20px;
-  row-gap: 100px;
-  -webkit-column-gap: 100px;
-     -moz-column-gap: 100px;
-          column-gap: 100px;
-  grid-template-columns: 1fr 271px;
 }
 
 .about-image {
@@ -935,6 +927,11 @@ h1 .btn:hover, h1 .btn-accent:hover {
   -ms-flex-line-pack: center;
       align-content: center;
   justify-items: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  max-height: 480px;
 }
 
 .about .content-title {
@@ -951,18 +948,17 @@ h1 .btn:hover, h1 .btn-accent:hover {
 }
 
 .about-content p {
+  position: relative;
   color: #637588;
-}
-
-.lamp {
-  max-width: 100%;
-  max-height: 490px;
-  border-style: none;
 }
 
 .about-content p:first-of-type {
   position: relative;
   margin-top: -5px;
+}
+
+.about-content p:last-of-type {
+  margin: 0;
 }
 
 .about-content p:first-of-type::after {
@@ -1254,14 +1250,14 @@ h1 .btn:hover, h1 .btn-accent:hover {
 }
 
 @media (min-width: 576px) {
-  h1 .btn-accent {
-    min-width: 350px;
-  }
   .header-content__buttons .btn:first-of-type {
     margin-right: 20px;
   }
   .skills {
     padding: 10px 10px 40px 10px;
+  }
+  .btn-accent {
+    min-width: 350px;
   }
 }
 
@@ -1299,7 +1295,7 @@ h1 .btn:hover, h1 .btn-accent:hover {
 }
 
 @media (min-width: 992px) {
-  h1 .btn {
+  .header-content__buttons .btn {
     height: 60px;
     padding: 18px 20px;
     font-size: 1.125rem;
@@ -1313,22 +1309,20 @@ h1 .btn:hover, h1 .btn-accent:hover {
     grid-template-areas: "a1 a1 a2 a3" "a4 a5 a5 a6" "a7 a8 a9 a6";
     grid-gap: 10px;
   }
+  .about {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .about-container {
+    grid-gap: 100px;
+    grid-template-columns: 1fr 271px;
+  }
+  .about-content p:first-of-type::after {
+    right: -50px;
+  }
 }
 
 @media (min-width: 993px) {
-  h1 {
-    font-size: 3.75rem;
-  }
-  .header-content__title {
-    margin: 0 0 43px;
-  }
-  .about .content-title {
-    margin-bottom: 56px;
-    font-size: 2.5rem;
-  }
-  .about-content p {
-    font-size: 1.125rem;
-  }
   h1 {
     font-size: 3.75rem;
   }
@@ -1351,9 +1345,37 @@ h1 .btn:hover, h1 .btn-accent:hover {
 
 @media (max-width: 992px) and (min-width: 769px) {
   h1 {
+    font-size: 2.5rem;
+  }
+  .btn {
+    min-width: 200px;
+    font-size: 1rem;
+    height: 50px;
+    padding: 14px 20px;
+  }
+}
+
+@media (max-width: 991.8px) {
+  h1 {
     font-size: 3.75rem;
   }
-  h1 .btn {
+  .header-content__title {
+    margin: 0 0 43px;
+  }
+  .about .content-title {
+    margin-bottom: 56px;
+    font-size: 2.5rem;
+  }
+  .about-content p {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 991.8px) and (min-width: 768px) {
+  h1 {
+    font-size: 3.75rem;
+  }
+  .header-content__buttons .btn {
     min-width: 200px;
     font-size: 1rem;
     height: 50px;
@@ -1363,7 +1385,8 @@ h1 .btn:hover, h1 .btn-accent:hover {
     min-width: 200px;
     font-size: 1rem;
     height: 50px;
-    padding: 14px 20px;
+    padding-top: 14px;
+    padding-bottom: 14px;
   }
   .skills__container {
     grid-template-columns: repeat(3, 1fr);
@@ -1381,6 +1404,9 @@ h1 .btn:hover, h1 .btn-accent:hover {
     margin-bottom: 42px;
     font-size: 2rem;
   }
+  .about-content p:first-of-type::after {
+    right: -20px;
+  }
   .posts {
     padding-top: 60px;
     padding-bottom: 80px;
@@ -1393,24 +1419,37 @@ h1 .btn:hover, h1 .btn-accent:hover {
     margin-bottom: 42px;
     font-size: 2rem;
   }
-  h1 {
-    font-size: 2.5rem;
-  }
-  .btn {
-    min-width: 200px;
-    font-size: 1rem;
-    height: 50px;
-    padding: 14px 20px;
-  }
 }
 
 @media (max-width: 768px) {
+  .header-navbar__hamburger {
+    display: block;
+  }
+  .header-navbar__list {
+    display: none;
+  }
+  .header-menu {
+    background-color: rgba(68, 89, 110, 0.25);
+  }
   h1 {
     font-size: 1.875rem;
   }
-  h1 .btn {
+  .btn {
     min-width: 170px;
     font-size: 1rem;
+    height: 40px;
+    padding: 9px 20px;
+  }
+}
+
+@media (max-width: 767.8px) {
+  h1 {
+    font-size: 1.875rem;
+  }
+  .header-content__buttons .btn {
+    min-width: 170px;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
     height: 40px;
     padding: 9px 20px;
   }
@@ -1422,12 +1461,6 @@ h1 .btn:hover, h1 .btn-accent:hover {
   }
   .header-navbar__list {
     display: none;
-  }
-  .header-content__buttons .btn {
-    min-width: 170px;
-    font-size: 1rem;
-    height: 40px;
-    padding: 9px 20px;
   }
   .skills__container {
     grid-template-columns: repeat(2, 1fr);
@@ -1453,33 +1486,26 @@ h1 .btn:hover, h1 .btn-accent:hover {
     margin-bottom: 36px;
     font-size: 1.5rem;
   }
-  .header-navbar__hamburger {
-    display: block;
-  }
-  .header-navbar__list {
-    display: none;
-  }
-  .header-menu {
-    background-color: rgba(68, 89, 110, 0.25);
-  }
-  h1 {
-    font-size: 1.875rem;
-  }
-  .btn {
-    min-width: 170px;
-    font-size: 1rem;
-    height: 40px;
-    padding: 9px 20px;
-  }
 }
 
 @media (max-width: 767.8px) and (min-width: 576px) {
+  .header-content__buttons .btn {
+    min-width: 170px;
+    font-size: 1rem;
+    height: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    letter-spacing: 0.05em;
+  }
   .skills__button {
     min-width: 350px;
   }
   .about-container {
     grid-gap: 20px;
     grid-template-columns: 1fr 236px;
+  }
+  .about-content p:first-of-type::after {
+    right: -10px;
   }
   .forms-container {
     grid-template-columns: 1fr 1fr;
@@ -1511,7 +1537,7 @@ h1 .btn:hover, h1 .btn-accent:hover {
 }
 
 @media (max-width: 575.8px) {
-  h1 .btn-accent {
+  .btn-accent {
     width: 100%;
   }
   .skills {
@@ -1536,6 +1562,9 @@ h1 .btn:hover, h1 .btn-accent:hover {
     margin-bottom: 36px;
     font-size: 1.5rem;
     text-align: center;
+  }
+  .about-content p:first-of-type::after {
+    display: none;
   }
   .forms-container {
     grid-template-columns: 1fr;

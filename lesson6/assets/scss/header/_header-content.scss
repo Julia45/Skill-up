@@ -32,7 +32,7 @@
        border-color: #ffffff;
        background-color: rgba(255, 255, 255, 0.1);
        min-width: 250px;
-       margin-right: 20px;
+
        display: block;
        height: 60px;
        padding: 18px 20px;
@@ -45,19 +45,23 @@
        text-decoration: none;
        color: $color-light;
 
-       @include md {
+       @include lg-md {
+        min-width: 200px;
+        font-size: 1rem;
+        height: 50px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+       @include md-sm {
         min-width: 170px;
         font-size: 1rem;
         height: 40px;
-        padding: 9px 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        letter-spacing: 0.05em;
       }
 
-      @include lg-md {
-          min-width: 200px;
-          font-size: 1rem;
-          height: 50px;
-          padding: 14px 20px;
-      }
      }
 
      .btn:hover {
@@ -66,8 +70,6 @@
    }
  }
 
- .header-content__buttons .btn {
-  margin-right: 20px;
- }
+
 
 

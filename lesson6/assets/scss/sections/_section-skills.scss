@@ -63,13 +63,19 @@
   border-width: 2px;
   border-style: solid;
   font-size: 1.125rem;
-  min-width: 350px;
+
   color: #ffffff;
   text-decoration: none;
 
+  @include sm-min {
+    min-width: 350px;
+  }
+
+
   @include sm {
     width: 100%;
-  }}
+  }
+}
 
 .btn-accent:hover {
   background-color: #d66926;
