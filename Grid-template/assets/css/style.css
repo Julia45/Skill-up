@@ -831,6 +831,7 @@ h1 a {
   left: 0;
   right: 0;
   z-index: 2;
+  letter-spacing: 0.1em;
   margin: 0;
 }
 
@@ -851,7 +852,6 @@ h1 a {
   -o-transition: color 0.5s;
   transition: color 0.5s;
   font-size: 1.25rem;
-  letter-spacing: 0.1em;
   color: #ffffff;
   text-decoration: none;
 }
@@ -934,15 +934,6 @@ h1 a {
   max-height: 480px;
 }
 
-.about .content-title {
-  color: #2d3651;
-  font-family: "Roboto Slab", serif;
-  letter-spacing: 0.1em;
-  line-height: 1.2em;
-  font-family: "Roboto Slab", serif;
-  margin-top: 0;
-}
-
 .about-content {
   letter-spacing: 0.055em;
 }
@@ -959,6 +950,15 @@ h1 a {
 
 .about-content p:last-of-type {
   margin: 0;
+}
+
+.content-title {
+  color: #2d3651;
+  font-family: "Roboto Slab", serif;
+  letter-spacing: 0.1em;
+  line-height: 1.2em;
+  font-family: "Roboto Slab", serif;
+  margin-top: 0;
 }
 
 .about-content p:first-of-type::after {
@@ -1237,16 +1237,17 @@ h1 a {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.footer-text span:nth-child(1) {
+.first-span {
   margin-right: -0.5em;
-  letter-spacing: 0.33em;
+  letter-spacing: 0.2em;
   font-weight: 100;
 }
 
-.footer-text .second-span {
+.second-span {
   letter-spacing: 0.05em;
   color: #e5e5e5;
   font-weight: 700;
+  letter-spacing: 0px;
 }
 
 @media (min-width: 576px) {
@@ -1313,9 +1314,16 @@ h1 a {
     padding-top: 100px;
     padding-bottom: 100px;
   }
+  .about h2 {
+    margin-bottom: 56px;
+    font-size: 2.5rem;
+  }
   .about-container {
     grid-gap: 100px;
     grid-template-columns: 1fr 271px;
+  }
+  .about-content p {
+    font-size: 1.125rem;
   }
   .about-content p:first-of-type::after {
     right: -50px;
@@ -1362,12 +1370,9 @@ h1 a {
   .header-content__title {
     margin: 0 0 43px;
   }
-  .about .content-title {
+  .content-title {
     margin-bottom: 56px;
     font-size: 2.5rem;
-  }
-  .about-content p {
-    font-size: 1.125rem;
   }
 }
 
@@ -1397,10 +1402,14 @@ h1 a {
     padding-top: 80px;
     padding-bottom: 80px;
   }
+  .about h2 {
+    margin-bottom: 42px;
+    font-size: 2rem;
+  }
   .about-container {
     grid-gap: 40px;
   }
-  .about .content-title {
+  .content-title {
     margin-bottom: 42px;
     font-size: 2rem;
   }
@@ -1554,11 +1563,16 @@ h1 a {
   .btn-accent {
     width: 100%;
   }
+  .about h2 {
+    margin-bottom: 36px;
+    font-size: 1.5rem;
+    text-align: center;
+  }
   .about-container {
     grid-gap: 20px;
     grid-template-columns: 1fr;
   }
-  .about .content-title {
+  .content-title {
     margin-bottom: 36px;
     font-size: 1.5rem;
     text-align: center;
