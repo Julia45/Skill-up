@@ -147,10 +147,11 @@ grid-template-areas:
 
 .grid-post {
   background-color: rgb(242, 242, 242);
+  transition: background-color 0.5s ;
 }
 
 .grid-post:hover {
-  background-color: rgb(216, 216, 216);
+  background-color: #d8d8d8;
   color: $color-primary;
 }
 

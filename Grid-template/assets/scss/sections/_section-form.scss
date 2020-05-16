@@ -20,6 +20,7 @@
     }
 
   }
+
   .form-input {
     display: block;
     width: 100%;
@@ -39,6 +40,7 @@
       border-bottom-color: #ffffff;
       background-color: rgba(255, 255, 255, 0.15);
     }
+
   }
 
   @media (max-width: 767.8px) and (min-width: 576px) {
@@ -70,4 +72,15 @@
       border-color: #ffffff;
     }
   }
+}
+
+input:focus {
+  outline: none;
+}
+
+.form-item:focus {
+  border-color: rgba(255, 255, 255, 0.15);
+    border-bottom-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.15);
+
 }
