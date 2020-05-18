@@ -47,8 +47,10 @@ console.log(myObj)
  */
 
 var i = 2;
-console.log(i++)
-console.log(++i)
+console.log(i++) 
+console.log(++i) 
+console.log(i--) 
+console.log(--i) 
 /*
  * #4
  *
@@ -79,8 +81,8 @@ console.log(myTest)
 var myPi = Math.PI; 
 console.log(myPi);
 
-var myRound = 89.279;
-console.log(Math.round(myRound));
+var myRound = Math.round(89.279); 
+console.log( myRound);
 
 var myRandom = Math.random() * 10; 
 console.log(myRandom);
@@ -110,7 +112,7 @@ console.log(myPow);
  */
 
 
-var isRamaPos = strObj.str.includes('рама');
+var isRamaPos = strObj.str.indexOf('рама');
 console.log(isRamaPos)
 
 /*
@@ -134,8 +136,6 @@ console.log(strReplace);
  * Преобразуйте любую строку в верхний, затем в нижний регистры, результат отобразите в консоли.
  */
 
-var toUpperCase = strReplace.toUpperCase(strReplace);
-console.log(toUpperCase)
+console.log(strReplace.toUpperCase())
 
-var toLowerCase = strReplace.toLowerCase(strReplace)
-console.log(toLowerCase)
+console.log(strReplace.toLowerCase())
