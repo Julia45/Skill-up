@@ -12,7 +12,7 @@
      position: relative;
      margin: 25px 0;
      transform: rotate(0deg);
-     transition: .5s ease-in-out;
+     transition: 0.5s ease-in-out;
      cursor: pointer;
 
      @include md-min {
@@ -33,7 +33,7 @@
        opacity: 1;
        left: 0;
        transform: rotate(0deg);
-       transition: .25s ease-in-out;
+       transition: 0.25s ease-in-out;
 
        &:nth-child(1) {
          top: 0px;
@@ -78,16 +78,17 @@
      margin: 0 -20px 0 0;
      padding: 0;
      list-style: none;
+     transition: 0.5s ease-in-out;
 
      @include md-min {
        display: grid;
        grid-template-columns: repeat(auto-fit, minmax(50px, max-content));
        width: 100%;
        justify-content: end;
+       transition: 0.5s ease-in-out;
      }
 
      @include md {
-
        display: none;
      }
 
@@ -100,6 +101,7 @@
        right: 20px;
        background-color: rgba(68, 89, 110, 0.9);
        text-align: right;
+       transition: 0.5s ease-in-out;
      }
    }
 
