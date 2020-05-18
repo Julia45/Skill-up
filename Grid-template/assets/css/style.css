@@ -1436,6 +1436,7 @@ input:focus {
   }
   .about-container {
     grid-gap: 40px;
+    grid-template-columns: 1fr 271px;
   }
   .content-title {
     margin-bottom: 42px;
@@ -1537,6 +1538,10 @@ input:focus {
   .skills__button {
     min-width: 350px;
   }
+  .about h2 {
+    margin-bottom: 36px;
+    font-size: 1.5rem;
+  }
   .about-container {
     grid-gap: 20px;
     grid-template-columns: 1fr 236px;
@@ -1578,7 +1583,7 @@ input:focus {
     width: 100%;
   }
   .skills {
-    padding: 20px 20px 40px 20px;
+    padding: 20px;
   }
   .skills__container {
     grid-template-columns: 1fr;
@@ -1593,8 +1598,8 @@ input:focus {
   }
   .about h2 {
     margin-bottom: 36px;
-    font-size: 1.5rem;
     text-align: center;
+    font-size: 1.5rem;
   }
   .about-container {
     grid-gap: 20px;

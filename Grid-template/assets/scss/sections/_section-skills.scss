@@ -5,7 +5,7 @@
   }
 
   @include sm {
-    padding: $gap $gap ($gap * 2) $gap;
+    padding: 20px;
   }
 
   &__container {
