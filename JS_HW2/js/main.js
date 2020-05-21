@@ -9,10 +9,10 @@ console.log('Sample JavaScript #3 HW #17');
  * если нет – то счет продолжается
  */
 
-var counter = (function() {  
-  var count = 0; 
+var counter = (function () {
+  var count = -1;
 
-  return function(n) {  
+  return function (n) {
     if (n !== undefined) {
       return count = n
     } else {
@@ -20,7 +20,7 @@ var counter = (function() {
     }
     return count
   }
-}())
+})()
 
 console.log(counter()); // 0
 console.log(counter()); // 1
@@ -42,33 +42,41 @@ console.log(counter()); // 1
  * counting.decrement() – уменьшает значение счетчика на 1
  */
 
-// console.log(counting.value()); // 0
+console.log("-------------------------------------------")
+var counting = (function () {
+  var count = 0
 
-// counting.increment();
+  return {
+    value: function (n) {
+      if (n !== undefined) {
+        return count = n
+      } else {
+        return count
+      }
+    },
+    increment: function () {
+      count++
+    },
+    decrement: function () {
+      count--
+    }
+  }
+})()
 
-// counting.increment();
-
-// counting.increment();
-
-// console.log(counting.value()); // 3
-
-// counting.decrement();
-
-// counting.decrement();
-
-// console.log(counting.value()); // 1
-
-// console.log(counting.value(100)); // 100
-
-// counting.decrement();
-
-// console.log(counting.value()); // 99
-
-// console.log(counting.value(200)); // 200
-
-// counting.increment();
-
-// console.log(counting.value()); // 201
+console.log(counting.value()); // 0
+counting.increment();
+counting.increment();
+counting.increment();
+console.log(counting.value()); // 3
+counting.decrement();
+counting.decrement();
+console.log(counting.value()); // 1
+console.log(counting.value(100)); // 100
+counting.decrement();
+console.log(counting.value()); // 99
+console.log(counting.value(200)); // 200
+counting.increment();
+console.log(counting.value()); // 201
 
 /*
  * #3
@@ -83,84 +91,141 @@ console.log(counter()); // 1
  * console.log(myPow(3, 4, myPrint)); // 3^4=81
  * console.log(myPow(2, 3, myPrint)); // 2^3=8
  */
-
-function myPrint(a, b, res) {
-  res = a + '^' + b + '=' + result
-
-  return function myPow(a, b, myPrint) {
-    var result = Math.pow(a,b);
- }
-}
-
-myPow();
-
-console.log(myPow(3, 4, myPrint))
-console.log(myPow(2, 3, myPrint))
-
-
+console.log("-------------------------------------------")
 
 
 function myPow(a, b, myPrint) {
-  var result = Math.pow(a,b);
-
-  return function myPrint(a, b, res) {
-    res = a + '^' + b + '=' + result
-    return res
- }
+  function pow(a, b) {
+    if (b === 1) {
+      return a
+    } else {
+      return a * pow(a, b - 1)
+    }
+  }
+  return myPrint(a, b, pow(a, b))
 }
 
-myPow();
+function myPrint(a, b, res) {
+  var result = a + '^' + b + '=' + res
+  return result
+}
+
 
 console.log(myPow(3, 4, myPrint))
 console.log(myPow(2, 3, myPrint))
+
 
 /*
  * #4
  *
- * Создайте несколько однотипных объектов для описания автомобиля. Соблюдайте следующие правила, используйте следующие поля:
- * имя объекта car – обязательно и необходимое для тестирования, дальнейшее именование объектов – на ваше усмотрение
+ * Создайте несколько однотипных объектов для описания автомобиля. 
+ * Соблюдайте следующие правила, используйте следующие поля:
+ * имя объекта car – обязательно и необходимое для тестирования,
+ *  дальнейшее именование объектов – на ваше усмотрение
  * car.engine – объем двигателя, числовое поле
  * car.model – модель авто, строка
  * car.name – бренд авто, строка
  * car.year – год выпуска, число
- * car.used – строка для описания состояния авто, допускаются значения 'used' и 'new'
- *
- * #5
- *
- * Для созданных ранее объектов определите метод info(), используя ключевое слово this.
- * данный метод должен формировать и возвращать строку с полной информацией об автомобиле, например:
- * Chevrolet Lacetti, 2000cc, year 2010, used
- * Infinite FX50 AWD, 5000cc, year 2019, new
- * пробелы, запятые, символы cc и текст – имеют значение и проверяются при тестировании кода
- *
- * #6
- *
- * Для созданных ранее объектов измените свойство used, используя аксессоры (геттер и сеттер).
- * - используйте текущий год либо непосредственно в своем коде, либо с помощью глобальной переменной, например, yearNow
- * - если год выпуска автомобиля отличается от текущего года, геттер used должен выводить текст 'used'
- * - если год выпуска автомобиля совпадает с текущим годом, геттер used должен выводить текст 'new'
- * - если сеттеру used присвоено значение 'new', при этом года выпуска автомобиля отличается от текущего года,
- * - необходимо изменить год выпуска автомобиля, установив в качестве значения текущий год
- * - если сеттеру used присвоено значение 'used', ничего делать не нужно
+ * car.used – строка для описания состояния авто, допускаются значения 
+ * 'used' и 'new'
+  */
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+* #5
+*
+* Для созданных ранее объектов определите метод info(), 
+* используя ключевое слово this.
+* данный метод должен формировать и возвращать строку 
+* с полной информацией об автомобиле, например:
+* Chevrolet Lacetti, 2000cc, year 2010, used
+* Infinite FX50 AWD, 5000cc, year 2019, new
+* пробелы, запятые, символы cc и текст – имеют значение и 
+* проверяются при тестировании кода
  */
 
-// let yearNow = new Date().getFullYear(); // получить текущий год как число
 
-// console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2010, used
 
-// car.used = 'new';
 
-// console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2019, new -- год изменен
 
-// car.used = 'used';
 
-// console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2019, new -- изменения не выполняются
+/* 
+* #6
 
-// console.log(car2.info()); // Infinite FX50 AWD, 5000cc, year 2019, new
+* Для созданных ранее объектов измените свойство used, используя аксессоры
+*  (геттер и сеттер).
+* 
+* - используйте текущий год либо непосредственно в своем коде, 
+* либо с помощью глобальной переменной, например, yearNow
+* - если год выпуска автомобиля отличается от текущего года, геттер 
+* used должен выводить текст 'used'
+* - если год выпуска автомобиля совпадает с текущим годом, геттер used 
+* должен выводить текст 'new'
+* 
+* - если сеттеру used присвоено значение 'new', при этом года выпуска 
+* автомобиля отличается от текущего года,
+* - необходимо изменить год выпуска автомобиля, установив в качестве
+*  значения текущий год
+* - если сеттеру used присвоено значение 'used', ничего делать 
+* не нужно
+*/
 
-// car.used = 'used';
 
-// console.log(car2.info()); // Infinite FX50 AWD, 5000cc, year 2019, new -- изменения не выполняются
+function Car(engine, model, name, year, used) {
+  this.engine = engine;
+  this.model = model;
+  this.name = name;
+  this.year = year;
+  this.info = function info() {
+    var string = this.name + ' ' + this.model + ', ' + this.engine + 'cc'
+      + ', ' + 'year ' + this.year + ', ' + this.used
+    return string
+  }
+}
+
+
+let car = new Car(2000, 'Lacetti', 'Chevrolet', 2010);
+
+var objectDescriptor = {
+  get: function () {
+    if (yearNow !== this.year) {
+      return 'used'
+    } else {
+      return 'new'
+    }
+  },
+  set: function (value) {
+    if (value === 'new' && yearNow !== this.year) {
+      this.year = yearNow
+    }
+  }
+}
+
+Object.defineProperty(car, 'used', objectDescriptor);
+
+let car2 = new Car(5000, 'FX50 AWD', 'Infinite', 2019)
+
+Object.defineProperty(car2, 'used', objectDescriptor);
+
+let yearNow = 2019; // получить текущий год как число
+console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2010, used
+car.used = 'new';
+console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2019, new -- год изменен
+car.used = 'used';
+console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2019, new -- изменения не выполняются
+console.log(car2.info()); // Infinite FX50 AWD, 5000cc, year 2019, new
+car.used = 'used';
+console.log(car2.info()); // Infinite FX50 AWD, 5000cc, year 2019, new -- изменения не выполняются
 
 /*
  * #7
@@ -169,9 +234,14 @@ console.log(myPow(2, 3, myPrint))
  * В реализации функции должен быть применен метод Math.max() и apply().
  */
 
-// let list = [12, 23, 100, 34, 56, 9, 233];
+let list = [12, 23, 100, 34, 56, 9, 233];
 
-// console.log(myMax(list)); // 233
+function myMax(arr) {
+  let max = Math.max.apply(null, arr);
+  return max
+}
+
+console.log(myMax(list)); // 233
 
 /*
  * #8
@@ -179,25 +249,31 @@ console.log(myPow(2, 3, myPrint))
  * Создайте функцию myMul(a, b), которая будет умножать числа а и b, возвращая результат.
  */
 
+
+var myMul = function (a, b) {
+  return a * b
+}
+
+var myDouble = myMul.bind(null, 2);
+var myTriple = myMul.bind(null, 3);
+
 /*
  * создайте функции myDouble(n), которая принимает один параметр и  удваивает его.
- * Использовать умножение или другие математические операции внутри функции – запрещено, только bind() и myMul().
+ * Использовать умножение или другие математические операции внутри функции – запрещено,
+ *  только bind() и myMul().
  * Функция возвращает результат вычисления.
  */
 
-// console.log(myDouble(3)); // = myMul(2, 3) = 6
-
-// console.log(myDouble(4)); // = myMul(2, 4) = 8
-
-// console.log(myDouble(5)); // = myMul(2, 5) = 10
+console.log(myDouble(3)); // = myMul(2, 3) = 6
+console.log(myDouble(4)); // = myMul(2, 4) = 8
+console.log(myDouble(5)); // = myMul(2, 5) = 10
 
 // аналогичным образом создайте функцию myTriple(n), которая утраивает принимающий параметр, возвращая результат.
 
-// console.log(myTriple(3)); // = myMul(3, 3) = 9
+console.log(myTriple(3)); // = myMul(3, 3) = 9
+console.log(myTriple(4)); // = myMul(3, 4) = 12
+console.log(myTriple(5)); // = myMul(3, 5) = 15
 
-// console.log(myTriple(4)); // = myMul(3, 4) = 12
-
-// console.log(myTriple(5)); // = myMul(3, 5) = 15
 
 /*
  * #9
@@ -209,10 +285,13 @@ console.log(myPow(2, 3, myPrint))
  * Любые условные операторы – запрещены и объекты.
  */
 
-// let notUniqNums = [1, 1, 2, 3, 4, 5, 6, 7];
+let notUniqNums = [1, 1, 2, 3, 4, 5, 6, 7];
+let notUniqStrings = ['Bob', 'Kate', 'Jhon', 'Tom', 'Jhon', 'Kate', 'Tom', 'Bob', 'Jhon', 'Tom'];
 
-// let notUniqStrings = ['Bob', 'Kate', 'Jhon', 'Tom', 'Jhon', 'Kate', 'Tom', 'Bob', 'Jhon', 'Tom'];
+function myUniq(arr) {
+  var uniqueElements = new Set(arr);
+  return Array.from(uniqueElements)
+}
 
-// console.log(myUniq(notUniqNums));
-
-// console.log(myUniq(notUniqStrings));
+console.log(myUniq(notUniqNums));
+console.log(myUniq(notUniqStrings));
