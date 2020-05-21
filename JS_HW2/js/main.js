@@ -91,8 +91,6 @@ console.log(counting.value()); // 201
  * console.log(myPow(3, 4, myPrint)); // 3^4=81
  * console.log(myPow(2, 3, myPrint)); // 2^3=8
  */
-console.log("-------------------------------------------")
-
 
 function myPow(a, b, myPrint) {
   function pow(a, b) {
@@ -130,17 +128,6 @@ console.log(myPow(2, 3, myPrint))
  * 'used' и 'new'
   */
 
-
-
-
-
-
-
-
-
-
-
-
 /*
 * #5
 *
@@ -153,10 +140,6 @@ console.log(myPow(2, 3, myPrint))
 * пробелы, запятые, символы cc и текст – имеют значение и 
 * проверяются при тестировании кода
  */
-
-
-
-
 
 
 /* 
@@ -217,7 +200,7 @@ let car2 = new Car(5000, 'FX50 AWD', 'Infinite', 2019)
 
 Object.defineProperty(car2, 'used', objectDescriptor);
 
-let yearNow = 2019; // получить текущий год как число
+let yearNow = new Date().getFullYear(); // получить текущий год как число
 console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2010, used
 car.used = 'new';
 console.log(car.info()); // Chevrolet Lacetti, 2000cc, year 2019, new -- год изменен
@@ -285,13 +268,16 @@ console.log(myTriple(5)); // = myMul(3, 5) = 15
  * Любые условные операторы – запрещены и объекты.
  */
 
-let notUniqNums = [1, 1, 2, 3, 4, 5, 6, 7];
-let notUniqStrings = ['Bob', 'Kate', 'Jhon', 'Tom', 'Jhon', 'Kate', 'Tom', 'Bob', 'Jhon', 'Tom'];
 
 function myUniq(arr) {
   var uniqueElements = new Set(arr);
   return Array.from(uniqueElements)
 }
 
+let notUniqNums = [1, 1, 2, 3, 4, 5, 6, 7];
+let notUniqStrings = ['Bob', 'Kate', 'Jhon', 'Tom', 'Jhon', 'Kate', 'Tom', 'Bob', 'Jhon', 'Tom'];
+
 console.log(myUniq(notUniqNums));
 console.log(myUniq(notUniqStrings));
+console.log(myUniq([1, 1, 2, 3, 3, 2, 3, 4, 5, 3, 2, 4, 5]));
+

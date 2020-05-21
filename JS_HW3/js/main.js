@@ -11,16 +11,16 @@ console.log('Sample JavaScript #2 HW #16');
  * age – любой возраст, число
  */
 
- var userObj = {
+var userObj = {
   firstName: "John",
   lastName: "Black",
   age: 25,
-  fullName : function() {
+  fullName: function () {
     return this.firstName + " " + this.lastName;
   }
- }
+}
 
- console.log(userObj.fullName())
+console.log(userObj.fullName())
 
 /*
  * #2
@@ -33,8 +33,6 @@ console.log('Sample JavaScript #2 HW #16');
  * userObj.lastName ← Фамилия'
  * userObj.fullName() → 'Имя Фамилия'.
  */
-
-
 
 /*
  * #3
@@ -49,10 +47,10 @@ console.log('Sample JavaScript #2 HW #16');
  * При выполнении задачи не используйте оператор if, требуется решение с логическим оператором ||.
  */
 
- function defUpperStr(string) {
-   string = string || 'DEFAULT TEXT'
-   return string.toUpperCase()
- }
+function defUpperStr(string) {
+  string = string || 'DEFAULT TEXT'
+  return string.toUpperCase()
+}
 
 
 console.log(defUpperStr('My text')); // MY TEXT
@@ -77,17 +75,17 @@ console.log(defUpperStr()); // DEFAULT TEXT
  * evenFn(20) → [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
  */
 
- function evenFn(n) {
-   var array = []
-   for (var i = 0; i <= n; i++) {
-     if ((i % 2 === 0) && (i !== 0)) {
-       array.push(i)
-     } else {
-       continue
-     }
-   }
-   return array
- }
+function evenFn(n) {
+  var array = []
+  for (var i = 0; i <= n; i++) {
+    if ((i % 2 === 0) && (i !== 0)) {
+      array.push(i)
+    } else {
+      continue
+    }
+  }
+  return array
+}
 
 console.log(evenFn(10)); // [2, 4, 6, 8, 10]
 console.log(evenFn(15)); // [2, 4, 6, 8, 10, 12, 14]
@@ -108,35 +106,35 @@ console.log(evenFn(20)); // [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
  * В реализации функции обязательно должны быть использованы операторы switch / case / default.
  */
 
- function weekFn(n) {
-   if ( n > 7 || typeof n === 'string' || Number.isInteger(n) === false) {
-     return null
-   } else {
-    switch (n) {      
-       case 1:
-         day = "Понедельник";
-         break;
-       case 2:
-         day = "Вторник";
-         break;
-       case 3:
-         day = "Среда";
-         break;
-       case 4:
-         day = "Четверг";
-         break;
-       case 5:
-         day = "Пятница";
-         break;
-       case 6:
-         day = "Суббота";
-         break;
-       case 7:
-         day = "Воскресенье";
-    }  
-   }
-    return day
- }
+function weekFn(n) {
+  if (n > 7 || typeof n === 'string' || Number.isInteger(n) === false) {
+    return null
+  } else {
+    switch (n) {
+      case 1:
+        day = "Понедельник";
+        break;
+      case 2:
+        day = "Вторник";
+        break;
+      case 3:
+        day = "Среда";
+        break;
+      case 4:
+        day = "Четверг";
+        break;
+      case 5:
+        day = "Пятница";
+        break;
+      case 6:
+        day = "Суббота";
+        break;
+      case 7:
+        day = "Воскресенье";
+    }
+  }
+  return day
+}
 
 console.log(weekFn(1)); // 'Понедельник'
 console.log(weekFn(3)); // 'Среда'
@@ -165,13 +163,13 @@ console.log(weekFn('2')); // null
 
 function ageClassification(n) {
   return n < 0 ? null
-       : n >= 0 && n <= 24 ? 'детский возраст'
-       : n > 24 && n <= 44 ? 'молодой возраст'
-       : n > 44 && n <= 65 ? 'средний возраст'
-       : n > 65 && n <= 75 ? 'пожилой возраст'
-       : n > 75 && n <= 90  ? 'старческий возраст'
-       : n > 90 && n <= 122 ? 'долгожители'
-       : null;
+    : n >= 0 && n <= 24 ? 'детский возраст'
+      : n > 24 && n <= 44 ? 'молодой возраст'
+        : n > 44 && n <= 65 ? 'средний возраст'
+          : n > 65 && n <= 75 ? 'пожилой возраст'
+            : n > 75 && n <= 90 ? 'старческий возраст'
+              : n > 90 && n <= 122 ? 'долгожители'
+                : null;
 }
 
 console.log('-1 :', ageClassification(-1)); // -1 : null
@@ -247,15 +245,15 @@ console.log(oddFn(20)); // [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
  *
  */
 
- function mainFunc(a, b, func) {
-   if (typeof func !== 'function') {
-     return false
-   } 
-    return func(a, b, cbRandom(a, b))
- }
+function mainFunc(a, b, func) {
+  if (typeof func !== 'function') {
+    return false
+  }
+  return func(a, b)
+}
 
- function cbRandom(a, b) {
-   var result = Math.random() * (b - a) + a;
+function cbRandom(a, b) {
+  var result = Math.random() * (b - a) + a;
   return Number(result.toFixed(0))
 }
 
@@ -267,11 +265,15 @@ function cbAdd(a, b) {
   return a + b;
 }
 
- /*
- * реализуйте следующие функции, которые будут осуществлять механизм callback в основной функции,
- * возвращая ей результат собственного вычисления...
- * для возведения в степень и получения произвольного значения можете воспользоваться методами объекта Math.
- */
+console.log(mainFunc(2, 5, cbRandom)); // целые числа в диапазоне 2..5
+console.log(mainFunc(2, 5, cbPow)); // 32
+console.log(mainFunc(2, 5, cbAdd)); // 7
+console.log(mainFunc(2, 5, 'not a func')); // false
+/*
+* реализуйте следующие функции, которые будут осуществлять механизм callback в основной функции,
+* возвращая ей результат собственного вычисления...
+* для возведения в степень и получения произвольного значения можете воспользоваться методами объекта Math.
+*/
 
 // cbRandom(a, b) – вычисляет и возвращает произвольное целое число в диапазоне между a и b включительно.
 
@@ -288,7 +290,3 @@ function cbAdd(a, b) {
  * mainFunc(2, 5, 'not a func') → false
  */
 
-console.log(mainFunc(2, 5, cbRandom)); // целые числа в диапазоне 2..5
-console.log(mainFunc(2, 5, cbPow)); // 32
-console.log(mainFunc(2, 5, cbAdd)); // 7
-console.log(mainFunc(2, 5, 'not a func')); // false
