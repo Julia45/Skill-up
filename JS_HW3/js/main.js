@@ -247,8 +247,6 @@ console.log(oddFn(20)); // [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
  *
  */
 
- console.log("========================")
-
  function mainFunc(a, b, func) {
    if (typeof func !== 'function') {
      return false
