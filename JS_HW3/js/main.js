@@ -107,9 +107,6 @@ console.log(evenFn(20)); // [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
  */
 
 function weekFn(n) {
-  if (n > 7 || typeof n === 'string' || Number.isInteger(n) === false) {
-    return null
-  } else {
     switch (n) {
       case 1:
         day = "Понедельник";
@@ -131,8 +128,10 @@ function weekFn(n) {
         break;
       case 7:
         day = "Воскресенье";
+        break;
+        default:
+    return null;
     }
-  }
   return day
 }
 
@@ -218,17 +217,16 @@ console.log('130 :', ageClassification(130)); // 130 : null
  */
 
 function oddFn(n) {
+  var num = 1;
   var array = []
-  for (var i = 0; i <= n; i++) {
-    if ((i % 2 !== 0) && (i !== 0)) {
-      array.push(i)
-    } else {
-      continue
-    }
-  }
+  while (num <= n) {
+    if (num % 2 !== 0) {
+      array.push(num)
+    } 
+    num++;
+  } 
   return array
 }
-
 console.log(oddFn(10)); // [1, 3, 5, 7, 9]
 console.log(oddFn(15)); // [1, 3, 5, 7, 9, 11, 13, 15]
 console.log(oddFn(20)); // [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
