@@ -47,44 +47,37 @@ console.log(wordsList(myLongStr, 'rep')); // {"repellendus", "repudiandae", "rep
  * isSeconds – опциональный параметр для отображения секунд в дате.
  * isISO – опциональный параметр переключения формата даты.
  */
-
 function getLocalDate(date, isSeconds, isISO) {
-  var myDate = new Date(date)
-
-  
+  var myDate = new Date(date);
 
   function addZero(number) {
     if (number < 10) {
       return '0' + number
-    }   
+    }
     return number
   }
 
-   date = (addZero(myDate.getDate()) + '.' + addZero(myDate.getMonth() + 1) + '.'
-   + myDate.getFullYear() + ', ' + addZero(myDate.getHours()) + ':' + addZero(myDate.getMinutes())).toString();
+  var year = myDate.getFullYear();
+  var month = addZero(myDate.getMonth() + 1);
+  var day = addZero(myDate.getDate());
+  var hours = addZero(myDate.getHours());
+  var minutes = addZero(myDate.getMinutes());
 
-   var d = new Date(123456) 
-   if(d) {
-    date = (addZero(myDate.getDate()) + '.' + addZero(myDate.getMonth() + 1) + '.'
-   + myDate.getFullYear() + ', ' + addZero(myDate.getHours()) + ':' + addZero(myDate.getMinutes()) + ':' + addZero(myDate.getSeconds())).toString();
- } 
-
-
-    if(isSeconds) {
-       date = (addZero(myDate.getDate()) + '.' + addZero(myDate.getMonth() + 1) + '.'
-      + myDate.getFullYear() + ', ' + addZero(myDate.getHours()) + ':' + addZero(myDate.getMinutes()) + ':' + addZero(myDate.getSeconds())).toString();
-    } 
+  var formatedDate = day + '.' + month + '.' + year;
 
 
-    if (isISO && isSeconds) {
-      date = (myDate.getFullYear() + '-' + addZero(myDate.getMonth() + 1) + '-'
-      + addZero(myDate.getDate() + ', ' + addZero(myDate.getHours()) + ':' + addZero(myDate.getMinutes()) + ':' + addZero(myDate.getSeconds())).toString())
-    } else if (isISO && !isSeconds) {
-      date = (myDate.getFullYear() + '-' + addZero(myDate.getMonth() + 1) + '-'
-      + addZero(myDate.getDate() + ', ' + addZero(myDate.getHours()) + ':' + addZero(myDate.getMinutes())).toString())  
-    }
+  if (isISO) {
+    formatedDate = year + '-' + month + '-' + day;
+  }
 
-  return date
+  formatedDate = formatedDate + ', ' + hours + ':' + minutes;
+
+  if (isSeconds) {
+    formatedDate = formatedDate + ':' + addZero(myDate.getSeconds());
+  }
+
+
+  return formatedDate
 }
 
 var myDate = new Date()
@@ -133,16 +126,16 @@ console.log(getWeekDay('2019-07-27')); // суббота
  * День нужно возвратить в европейской нумерации, т.е. понедельник имеет номер 1, вторник номер 2, …, воскресенье – номер 7.
  */
 
- function getLocalDay(date) {
+function getLocalDay(date) {
   var ourTestedDate = new Date(date);
   var currentWeek = ourTestedDate.getDay()
 
-  if (currentWeek == 0) { 
+  if (currentWeek == 0) {
     currentWeek = 7;
   }
 
   return currentWeek;
- }
+}
 
 
 console.log(getLocalDay('2019-07-16')); // 2
@@ -164,11 +157,11 @@ function getDateAgo(presentDate, daysBack) {
   var newDate = new Date(convertedDate - daysBack * miliSecondsInDay);
 
   function addZero(number) {
-  if (number < 10) {
-    return '0' + number
-  }   
-  return number
-}
+    if (number < 10) {
+      return '0' + number
+    }
+    return number
+  }
 
   var string = addZero(newDate.getDate()) + '.' + addZero((newDate.getMonth() + 1)) + '.' + newDate.getFullYear()
   return string;
@@ -193,16 +186,56 @@ console.log(getDateAgo('2019-01-29', 365)); // 29.01.2018
  * Объекты и их методы, созданные прототипом должны полностью соответствовать объектам из прошлого задания.
  */
 
-// let car = new Car(2000, 'Lacetti', 'Chevrolet', 2010);
-// let car2 = new Car(5000, 'FX50 AWD', 'Infinite', 2019);
-// console.log(car.info()); // chevrolet Lacetti, 2010cc, year 2010, used
-// car.used = 'new';
-// console.log(car.info()); // chevrolet Lacetti, 2019cc, year 2019, new -- год изменен
-// car.used = 'used';
-// console.log(car.info()); // chevrolet Lacetti, 2019cc, year 2019, new -- изменения не выполняются
-// console.log(car2.info()); // infinite FX50 AWD, 2019cc, year 2019, new
-// car.used = 'used';
-// console.log(car2.info()); // infinite FX50 AWD, 2019cc, year 2019, new -- изменения не выполняются
+var objectDescriptor = {
+  get: function () {
+    var yearNow = new Date().getFullYear();
+    if (yearNow !== this.year) {
+      return 'used'
+    } else {
+      return 'new'
+    }
+  },
+  set: function (value) {
+    var yearNow = new Date().getFullYear();
+    if (value === 'new' && yearNow !== this.year) {
+      this.year = yearNow
+    }
+  }
+}
+
+function Car(engine, model, name, year) {
+  this.engine = engine;
+  this.model = model;
+  this.name = name;
+  this.year = year;
+
+  Object.defineProperty(this, 'used', objectDescriptor);
+}
+
+Car.prototype.info = function () {
+  var string = this.name + ' ' + this.model + ', ' + this.engine + 'cc'
+    + ', ' + 'year ' + this.year + ', ' + this.used
+  return string;
+}
+
+var car = new Car(2000, 'Lacetti', 'Chevrolet', 2010);
+var car2 = new Car(5000, 'FX50 AWD', 'Infinite', 2019)
+
+
+var yearNow = new Date().getFullYear();
+console.log(car.info()); // chevrolet Lacetti, 2010cc, year 2010, used
+car.used = 'new';
+console.log(car.info()); // chevrolet Lacetti, 2019cc, year 2019, new -- год изменен
+car.used = 'used';
+console.log(car.info()); // chevrolet Lacetti, 2019cc, year 2019, new -- изменения не выполняются
+console.log(car2.info()); // infinite FX50 AWD, 2019cc, year 2019, new
+car.used = 'used';
+console.log(car2.info()); // infinite FX50 AWD, 2019cc, year 2019, new -- изменения не выполняются
+
+
+
+
+
 
 /*
  * #7
@@ -224,7 +257,7 @@ function testPerformance(iterations, func) {
     var diff = (end - start) * iterations
     return diff
   }
-  
+
 }
 
 console.log(testPerformance(100, test1)); // time
