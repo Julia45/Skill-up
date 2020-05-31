@@ -1,0 +1,11 @@
+.slides { 
+  position: relative 
+};
+
+.controls { 
+  position: relative 
+};
+
+.indicators { 
+  display: flex 
+};
