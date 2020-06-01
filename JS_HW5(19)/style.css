@@ -1,11 +1,25 @@
-.slides { 
-  position: relative 
-};
+body {
+  text-align: center;
+  font-weight: bold;
+}
 
-.controls { 
-  position: relative 
-};
+ul {
+  list-style: none;
+}
 
-.indicators { 
-  display: flex 
-};
+
+.controls {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.controls__item {
+  padding-top: 10px;
+  display: block;
+  width: 50px;
+  height: 35px;
+  background-color: salmon;
+  margin: 10px;
+}
+

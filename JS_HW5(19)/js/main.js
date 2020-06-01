@@ -2,137 +2,154 @@
 /* eslint-disable func-style */
 /* eslint-disable require-jsdoc */
 
-function createMainContainer() {
-  var mainContainer = document.createElement('div');
-
-  mainContainer.classList.add('carousel');
-  mainContainer.id = 'carousel';
-  document.body.append(mainContainer);
-
-}
-
-createMainContainer()
-
-// function createCarousel () {
-//   var carousel = document.createElement('div')
-//   var mainContainer = document.getElementById('carousel')
-//   carousel.classList.add('carousel');
-
-//   mainContainer.appendChild(carousel) 
-// }
-
-// createCarousel()
+var mainContainer = null;
+var prevIndicator = null;
+var slidesCount = 5
 
 
-function createSlides() {
-  var mainContainer = document.getElementById('carousel')
-  var listContainer = document.createElement('ul');
+  function createMainContainer() {
+    var mainContainer = document.createElement('div');
 
-  listContainer.classList.add('slides')
+    mainContainer.classList.add('carousel');
+    mainContainer.id = 'carousel';
+    document.body.append(mainContainer);
 
-  for (i = 0; i <= 4; i++) {
-    var listElement = document.createElement('li');
-    var listElementLink = document.createElement('a');
-
-    listElement.setAttribute('class', i === 0 ? 'slides__item active' : 'slides__item');
-
-
-    listElementLink.setAttribute('href', "#");
-    listElement.appendChild(listElementLink)
-    listContainer.appendChild(listElement);
   }
 
-  mainContainer.appendChild(listContainer)
-}
+  function createSlides(slidesCount = 5) {
 
+    var mainContainer = document.getElementById('carousel')
+    var listContainer = document.createElement('ul');
 
-function createIndicators() {
-  var mainContainer = document.getElementById('carousel')
-  var indicatorContainer = document.createElement('div');
-  indicatorContainer.classList.add('indicators');
-  for (i = 0; i <= 4; i++) {
-    let indicator = document.createElement('span');
+    listContainer.classList.add('slides')
 
-    indicator.setAttribute(
-      'class',
-      i === 0 ? 'indicators__item active' : 'indicators__item'
-    );
+    for (i = 0; i < slidesCount; i++) {
+      var listElement = document.createElement('li');
+      var listElementLink = document.createElement('a');
 
-    indicator.setAttribute('data-slide-to', i);    
-    indicatorContainer.appendChild(indicator);
-  }
-  mainContainer.appendChild(indicatorContainer);
-}
+      if (i === 0) {
+        listElement.setAttribute('class', 'slides__item active')
+      } else {
+        listElement.setAttribute('class', 'slides__item')
+      }
 
-
-
-function createControls() {
-  var mainContainer = document.getElementById('carousel')
-  var controlsContainer = document.createElement('div');
-  controlsContainer.classList.add('controls');
-  for (i = 0; i < 3; i++) {
-    let controlbutton = document.createElement('div');
-    let controlIcon = document.createElement('i');
-
-    switch (i) {
-      case 0:
-        controlbutton.classList.add('controls__item', 'controls__prev');
-        controlIcon.classList.add('fas', 'fa-chevron-left');
-        break;
-      case 1:
-        controlbutton.classList.add('controls__item', 'controls__next');
-        controlIcon.classList.add('fas', 'fa-chevron-right');
-        break;
-      case 2:
-        controlbutton.classList.add('controls__item', 'controls__pause');
-        controlIcon.classList.add('fas', 'fa-play');
-        break;
+      listElementLink.setAttribute('href', "#");
+      listElement.appendChild(listElementLink)
+      listContainer.appendChild(listElement);
     }
-    controlbutton.appendChild(controlIcon);
-    controlsContainer.appendChild(controlbutton);
+
+    mainContainer.appendChild(listContainer)
   }
-  mainContainer.appendChild(controlsContainer);
-}
+
+
+  function createIndicators(slidesCount = 5) {
+
+
+    var mainContainer = document.getElementById('carousel')
+    var indicatorContainer = document.createElement('div');
+    indicatorContainer.classList.add('indicators');
+    for (i = 0; i < slidesCount; i++) {
+      var indicator = document.createElement('span');
+
+      if (i === 0) {
+        indicator.setAttribute('class', 'indicators__item active')
+      } else {
+        indicator.setAttribute('class', 'indicators__item')
+      }
+
+
+      indicator.setAttribute('data-slide-to', i);
+      indicatorContainer.appendChild(indicator);
+    }
+    mainContainer.appendChild(indicatorContainer);
+  }
 
 
 
-function createStyle() {
-  var mainContainer = document.getElementById('carousel')
-  styleContainer = document.createElement('style');
-  let styleCode = `
+  function createControls() {
+    var mainContainer = document.getElementById('carousel')
+    var controlsContainer = document.createElement('div');
+    controlsContainer.classList.add('controls');
+    for (i = 0; i < 3; i++) {
+      var controlbutton = document.createElement('div');
+      var controlIcon = document.createElement('i');
+
+      switch (i) {
+        case 0:
+          controlbutton.classList.add('controls__item', 'controls__prev');
+          controlbutton.innerHTML = 'Prev'
+          controlIcon.classList.add('fas', 'fa-chevron-left');
+          break;
+        case 1:
+          controlbutton.classList.add('controls__item', 'controls__next');
+          controlIcon.classList.add('fas', 'fa-chevron-right');
+          controlbutton.innerHTML = 'Next'
+          break;
+        case 2:
+          controlbutton.classList.add('controls__item', 'controls__pause');
+          controlIcon.classList.add('fas', 'fa-play');
+          controlbutton.innerHTML = 'Pause'
+          break;
+      }
+      controlbutton.appendChild(controlIcon);
+      controlsContainer.appendChild(controlbutton);
+    }
+    mainContainer.appendChild(controlsContainer);
+  }
+
+
+
+  function createStyle() {
+    var mainContainer = document.getElementById('carousel')
+    styleContainer = document.createElement('style');
+    var style = `
     .controls,
     .slides {
       position: relative;
-
     }
     .indicators {
       display: flex;
     }
     .indicators__item {
       display: block;
-      width: 20px;
-      height: 20px;
-      background-color: gray;
-      margin: 5px;
-      border-radius: 10px;
+      width: 22px;
+      height: 21px;
+      background-color: grey;
+      margin: 10px;
+      border-radius: 4px;
     }`;
 
-  styleContainer.innerHTML = styleCode;
-  mainContainer.appendChild(styleContainer);
-}
+    styleContainer.innerHTML = style;
+    mainContainer.appendChild(styleContainer);
+  }
 
+  function clickHandler(e) {
+    var target = e.target;
 
+    if (target.classList.contains('indicators__item')) {
+      target.style.backgroundColor = 'red';
 
+      if (prevIndicator !== null) prevIndicator.removeAttribute('style');
+      
 
+      prevIndicator = target;
+    }
+  }
 
-function createCarousel() {
+  function eventListenerFunc() {
+    var indicatorContainer = document.querySelector('div.indicators');
+
+    indicatorContainer.addEventListener('click', clickHandler);
+
+  }
+
+  function createCarousel(slidesCount) {
   createMainContainer()
-  createSlides();
-  createIndicators()
+  createSlides(slidesCount);
+  createIndicators(slidesCount)
   createControls();
   createStyle()
-
-
+  eventListenerFunc()
 }
 
 createCarousel();
