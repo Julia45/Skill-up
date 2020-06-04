@@ -75,8 +75,6 @@ function getLocalDate(date, isSeconds, isISO) {
   if (isSeconds) {
     formatedDate = formatedDate + ':' + addZero(myDate.getSeconds());
   }
-
-
   return formatedDate
 }
 
