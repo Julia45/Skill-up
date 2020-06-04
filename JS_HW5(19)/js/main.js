@@ -5,15 +5,15 @@
 var prevIndicator;
 var slidesCount = 5;
 
-
+function createCarousel(slidesCount) {
 function createMainContainer() {
   var mainContainer = document.createElement('div');
 
   mainContainer.classList.add('carousel');
   mainContainer.id = 'carousel';
   document.body.append(mainContainer);
-
 }
+createMainContainer()
 
 function createSlides(slidesCount) {
 
@@ -40,6 +40,8 @@ function createSlides(slidesCount) {
   mainContainer.appendChild(listContainer)
 }
 
+createSlides(slidesCount);
+
 
 function createIndicators(slidesCount) {
 
@@ -60,6 +62,7 @@ function createIndicators(slidesCount) {
   }
   mainContainer.appendChild(indicatorContainer);
 }
+createIndicators(slidesCount)
 
 
 
@@ -75,18 +78,15 @@ function createControls() {
     switch (i) {
       case 0:
         controlbutton.classList.add('controls__item', 'controls__prev');
-        controlbutton.innerHTML = 'Prev'
         controlIcon.classList.add('fas', 'fa-chevron-left');
         break;
       case 1:
-        controlbutton.classList.add('controls__item', 'controls__next');
-        controlIcon.classList.add('fas', 'fa-chevron-right');
-        controlbutton.innerHTML = 'Next'
-        break;
-      case 2:
         controlbutton.classList.add('controls__item', 'controls__pause');
         controlIcon.classList.add('fas', 'fa-play');
-        controlbutton.innerHTML = 'Pause'
+        break;
+      case 2:
+        controlbutton.classList.add('controls__item', 'controls__next');
+        controlIcon.classList.add('fas', 'fa-chevron-right');
         break;
     }
     controlbutton.appendChild(controlIcon);
@@ -94,6 +94,8 @@ function createControls() {
   }
   mainContainer.appendChild(controlsContainer);
 }
+
+createControls();
 
 
 
@@ -110,8 +112,8 @@ function createStyle() {
     }
     .indicators__item {
       display: block;
-      width: 22px;
-      height: 21px;
+      width: 30px;
+      height: 30px;
       background-color: grey;
       margin: 10px;
       border-radius: 4px;
@@ -136,28 +138,19 @@ function clickHandler(e) {
 
     if (prevIndicator && prevIndicator !== target) {
       prevIndicator.removeAttribute('style');
-    }
-
-    
+    }    
 
     prevIndicator = target;
   }
 }
+createStyle()
 
 function eventListenerFunc() {
   var indicatorContainer = document.querySelector('.indicators');
 
   indicatorContainer.addEventListener('click', clickHandler);
-
-
 }
 
-function createCarousel(slidesCount) {
-  createMainContainer()
-  createSlides(slidesCount);
-  createIndicators(slidesCount)
-  createControls();
-  createStyle()
   eventListenerFunc()
 }
 
