@@ -1,10 +1,10 @@
-let slides = document.querySelectorAll('.slide');
-let currentSlide = 0;
-let slideInterval = setInterval(nextSlide, 2000);
+var slides = document.querySelectorAll('.slide');
+var currentSlide = 0;
+var slideInterval = setInterval(nextSlide, 2000);
 var pauseButton = document.querySelector('#pause');
 var playing = true;
-let next = document.querySelector('#next');
-let previous = document.querySelector('#previous');
+var next = document.querySelector('#next');
+var previous = document.querySelector('#previous');
 
 
 function nextSlide() {

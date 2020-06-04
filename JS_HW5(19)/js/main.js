@@ -81,12 +81,12 @@ function createControls() {
         controlIcon.classList.add('fas', 'fa-chevron-left');
         break;
       case 1:
-        controlbutton.classList.add('controls__item', 'controls__pause');
-        controlIcon.classList.add('fas', 'fa-play');
-        break;
-      case 2:
         controlbutton.classList.add('controls__item', 'controls__next');
         controlIcon.classList.add('fas', 'fa-chevron-right');
+        break;
+      case 2:
+        controlbutton.classList.add('controls__item', 'controls__pause');
+        controlIcon.classList.add('fas', 'fa-play');
         break;
     }
     controlbutton.appendChild(controlIcon);
