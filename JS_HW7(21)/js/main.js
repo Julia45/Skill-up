@@ -14,10 +14,12 @@ console.log('Sample JavaScript #7 HW #21');
  * Функция получает строку, возвращает преобразованную строку, конечные пробелы должны быть удалены.
  */
 
- function replaceCSSComments (string) {
-   var newString = string.replace(/\/\*.?[а-я]+\d?.?\*\/ ?/g, '')
-   return newString
- }
+function replaceCSSComments(string) {
+  var newString1 = string.match(/\/\*.?[а-я]+\d?.?\*\/ ?/gu);
+  var newString = string.replace(/\/\*.?[а-я]+\d?.?\*\/ ?/gu, '')
+  return newString
+}
+
 
 
 console.log(replaceCSSComments('код без /*комментарий*/ комментов')); // код без комментов
@@ -32,8 +34,10 @@ console.log(replaceCSSComments('код /*к1*/ без /* к2 */ коммент/*
  * Функция получает строку, возвращает преобразованную строку.
  */
 
-function replaceHTMLComments (string) {
-  var newString = string.replace(/\<!--\s?[а-я]+\d.?--\> ?/g, '')
+console.log('тестирование replaceHTMLComments ')
+
+function replaceHTMLComments(string) {
+  var newString = string.replace(/(\<!--\s?[а-я]+\d.?--\>\s?)/g, '').trim()
   return newString
 }
 
@@ -50,11 +54,11 @@ console.log(replaceHTMLComments('код <!--к1--> без <!-- к2 --> комм�
  * Функция получает строку – имя файла, возвращает true или false.
  */
 
- function validateFileType (string) {
-   var regexp = /\.(png$|jpg$|jpeg$)/g;
+function validateFileType(string) {
+  var regexp = /\.(png$|jpg$|jpeg$)/g;
   var newString = regexp.test(string)
-return newString
- }
+  return newString
+}
 
 console.log(validateFileType('image.png')); // true
 console.log(validateFileType('image.html')); // false
@@ -76,7 +80,7 @@ console.log("==========================")
 function checkYear(year) {
   var regexp = /^(19\d\d|20\d\d|2100)$/g; // 
   var newString = regexp.test(year)
-return newString
+  return newString
 }
 
 
@@ -102,13 +106,13 @@ console.log(checkYear(2101)); // false
  * Функция получает строку – имейл, возвращает true или false.
  */
 
- function checkEmail(string) {
-  var regexp = /^([a-z\-\.]+\@[a-z]+\.[a-z]+\.?[a-z]+)$/gm; 
+function checkEmail(string) {
+  var regexp = /^([a-z\-\.]+\@[a-z]+\.[a-z]+\.?[a-z]+)$/gm;
   var newString = regexp.test(string)
-return newString
+  return newString
 
- }
- 
+}
+
 console.log("==========================")
 
 console.log(checkEmail('mail@gmail.com')); // true
@@ -169,11 +173,12 @@ console.log(checkDomainUrl('www.example.domain-hyphen.com')); // false
  * Функция получает произвольную строку текста с доменами (один и более), возвращает результат преобразования.
  */
 
- function createLinksFromDomains(string) {
-   var website = /(https?\:\/\/([a-z]+\.?([a-z-\d\.\_]+)?\.[a-z]{2,4}))/g;
-   var newString = string.replace(website, '<a href="$1">\$2<\/a\>')
-   return newString
- }
+function createLinksFromDomains(string) {
+  var website = /(https?\:\/\/([a-z]+\.?([a-z-\d\.\_]+)?\.[a-z]{2,4}))/g;
+  var newString = string.replace(website, '<a href="$1" target="_blank">$2</a>')
+  return newString
+
+}
 
 
 // <a href="http://site.ua">site.ua</a> text1 <a href="https://site.com">site.com</a> text2 <a href="https://site.com.ua">site.com.ua</a> text3 <a href="https://subdomain.my-site.com.ua">subdomain.my-site.com.ua</a> text4
