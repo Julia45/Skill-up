@@ -17,18 +17,18 @@ function prevSlide() {
 
 function goToSlide(n) {
   slides[currentSlide].className = 'slide';
-  currentSlide = (n + slides.length) % slides.length; // n = 1
+  currentSlide = (n + slides.length) % slides.length; // n = 1 => 6 % 6 = 1
   slides[currentSlide].className = 'slide active';
 }
 
-function pauseSlideShow() {
-  pauseButton.innerHTML = 'Play';
+function pauseSlideShow() { 
+  pauseButton.innerHTML = '<i class="fas fa-play">';
   playing = false;
   clearInterval(slideInterval);
 }
 
 function playSlideShow() {
-  pauseButton.innerHTML = 'Pause';
+  pauseButton.innerHTML = '<i class="fas fa-pause">';
   playing = true;
   slideInterval = setInterval(nextSlide, 2000);
 }
@@ -41,7 +41,6 @@ pauseButton.onclick = function() {
       playSlideShow();
   }
 };
-
 
 next.onclick = function () {
   pauseSlideShow();
