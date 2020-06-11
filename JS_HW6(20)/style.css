@@ -12,6 +12,7 @@
 
 body {
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .slide {
@@ -60,6 +61,7 @@ body {
   height: 0;
   margin: 0;
   justify-content: center;
+  display: none;
 }
 
 .control {
@@ -74,9 +76,35 @@ body {
   padding: 0px;
   text-decoration: none;
   box-shadow: 0 0 5px black, 0 0 20px black;
+  outline: none;
 
 }
 
-.control {
-  outline: none;
+
+.indicators-container{
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  height: 0;
+  margin: 0;
+  justify-content: center;
+  display: none;
+}
+
+.indicator_item {
+  box-shadow: 0 0 5px black, 0 0 20px black;
+  display: inline-block;
+  width: 35px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: red;
+  z-index: 10;
+  margin: 10px
+}
+
+.indicator_item.active {
+  background-color: lightblue;
+
 }
