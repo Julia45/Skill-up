@@ -12,7 +12,6 @@
 
 body {
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 .slide {
@@ -67,7 +66,7 @@ body {
 .control {
   width: 55px;
   height: 35px;
-  margin: -50px 7.5px 0;
+  margin: -92px 7.5px 0;
   border: 0px;
   text-align: center;
   border-radius: 24px;
@@ -101,7 +100,7 @@ body {
   border-radius: 10px;
   background-color: red;
   z-index: 10;
-  margin: 10px
+  margin: -40px 7.5px 0;
 }
 
 .indicator_item.active {
