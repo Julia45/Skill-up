@@ -1,0 +1,27 @@
+<h2>NgFor</h2>
+
+<h3>Пример использования</h3>
+
+<ul>
+  <li *ngFor = "let item of items">
+    {{item}}
+  </li>
+</ul>
+
+<h3>ngFor и локальные переменные</h3>
+
+<ul>
+  <li *ngFor = "let item of items;
+  let i = index;
+  let e = even;
+  let o = odd;
+  let f = first;
+  let l = last"
+  [style.color] = "e ? 'red' : 'green'"
+  [style.font-weight] = "o ? 'bold' : 'normal'"
+  [style.background] = " f || l ? 'orange': ''">
+
+  Индекс: {{i}}----{{item}}
+  </li>
+
+</ul>

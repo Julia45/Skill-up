@@ -1,0 +1,21 @@
+h3 {
+  color: blue
+}
+
+h4 {
+  color: darkmagenta
+}
+
+// p:nth-child(2n+1) {
+//   color: white
+// }
+
+:host {
+  display: block;
+  padding: 15px 5px;
+  margin: 10px 10px;
+}
+
+:host-context(.bg-dark) p {
+  color: white
+}

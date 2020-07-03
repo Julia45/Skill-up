@@ -1,0 +1,12 @@
+
+<h3>Timer 1</h3>
+<app-timer-item (tick) = "logging(0, $event)"></app-timer-item>
+<p>Таймер 1: {{ticklog[0]}}</p>
+
+<h3>Timer 2</h3>
+<app-timer-item (tick) = "logging(1, $event)" [timerInterval] = "5000" ></app-timer-item>
+<p>Таймер 2: {{ticklog[1]}}</p>
+
+<h3>Timer 3</h3>
+<app-timer-item (tick) = "logging(2, $event)" [timerInterval] = "10000"></app-timer-item>
+<p>Таймер 3: {{ticklog[2]}}</p>

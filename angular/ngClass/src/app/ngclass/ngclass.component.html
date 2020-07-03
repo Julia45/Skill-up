@@ -1,0 +1,43 @@
+<h2>Привязка классов</h2>
+
+<h3>Использование ngClass</h3>
+
+<div [ngClass] = "'border border-danger bg-success text-warning rounded p-3 mt-5'">
+  Набор классов в виде строки <br>
+  <h5>[ngClass] = "'border border-danger bg-success text-warning rounded p-3 mt-5'"</h5>
+</div>
+
+<div [ngClass] = "['border', 'border-info', 'bg-warning', 'text-light', 'rounded', 'p-3', 'mt-4']">
+  Набор классов в виде массива <br>
+  <h5>[ngClass] = "['border', 'border-info', 'bg-warning', 'text-light', 'rounded', 'p-3', 'mt-4']"</h5>
+</div>
+
+<div [ngClass] = "{'border': true, 'border-success': true, 'bg-info': true, 'text-light': true, 'rounded':true, 'p-3': true, 'mt-4': true}">
+  Набор классов в виде объекта <br>
+  <h5>[ngClass] = "&#123;'border': true, 'border-success': true, 'bg-info': true, 'text-light': true, 'rounded':true, 'p-3': true, 'mt-4': true&#123;"</h5>
+</div>
+
+<div [ngClass] = "{'border border-warning bg-danger text-warning rounded p-3 mt-4': true}">
+  Набор классов в виде объекта <br>
+  <h5>[ngClass] = "&#123;'border border-warning bg-danger text-warning rounded p-3 mt-4': true&#123;"</h5>
+</div>
+
+<div [ngClass] = "settings">
+  Набор классов в виде надстроечного объекта <br>
+  <h5>[ngClass] = "settings"</h5>
+</div>
+
+<hr>
+
+<div>
+  <label>
+    <input type="checkbox" [(ngModel)]="isChecked"/>
+    Меняет набор классов
+  </label>
+</div>
+
+
+<div [ngClass] = "isChecked ? checkedClasses : uncheckedClasses" >
+  Наборы классов по условию <br>
+  <h5>[ngClass] = "isChecked ? checkedClasses : uncheckedClasses"</h5>
+</div>

@@ -1,0 +1,14 @@
+<ul> 
+  <li *ngFor="let country of countriesLIst" (click)="onSelect(country)" > {{country.name}} 
+
+  </li> 
+</ul>
+
+
+
+<div *ngIf = "selectedCountyCapital">
+  <hr>
+  <p>
+    {{selectedCountyCapital}}
+  </p>
+</div>

@@ -1,0 +1,10 @@
+<p>Значение свойства "name":
+  <strong *ngIf = "name !== undefined; else elseBlock">{{name}}</strong>
+</p>
+
+
+<p>Значение свойства "value":
+  <strong>{{value}}</strong>
+</p>
+
+<ng-template #elseBlock> <strong>undefined</strong></ng-template>

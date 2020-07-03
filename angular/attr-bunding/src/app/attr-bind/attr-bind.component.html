@@ -1,0 +1,17 @@
+<h2>Привязка атрибутов</h2>
+
+<p>Size: {{value}}</p>
+
+<button (click) = "increaseSize()">+</button>
+<button (click) = "decreaseSize()">-</button>
+<hr>
+
+<svg [attr.width] = "value" [attr.height] = "value">
+  <rect
+  x="0"
+  y="0"
+  [attr.width] = "value"
+  [attr.height] = "value"
+  fill="green"></rect>
+
+</svg>

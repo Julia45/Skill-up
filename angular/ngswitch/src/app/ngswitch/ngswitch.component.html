@@ -1,0 +1,19 @@
+<h2>ngSwitch</h2>
+
+<h3>Пример использования</h3>
+
+<div [ngSwitch] = "value">
+  <div *ngSwitchCase = "'1'">Выбрано значение: <b>1</b></div>
+  <div *ngSwitchCase = "'2'">Выбрано значение: <b>2</b></div>
+  <div *ngSwitchCase = "'3'">Выбрано значение: <b>3</b></div>
+  <div *ngSwitchCase = "'4'">Выбрано значение: <b>4</b></div>
+  <div *ngSwitchDefault><b>Нет совпадений</b>, блок по умолчанию</div>
+
+</div>
+
+<label> <input [(ngModel)] = "value" type="radio" value="0"> = 0</label><br>
+<label> <input [(ngModel)] = "value" type="radio" value="1"> = 1</label><br>
+<label> <input [(ngModel)] = "value" type="radio" value="2"> = 2</label><br>
+<label> <input [(ngModel)] = "value" type="radio" value="3"> = 3</label><br>
+<label> <input [(ngModel)] = "value" type="radio" value="4"> = 4</label><br>
+<label> <input [(ngModel)] = "value" type="radio" value="5"> = 5</label><br>

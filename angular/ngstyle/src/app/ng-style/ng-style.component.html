@@ -1,0 +1,28 @@
+<h2>Привязка стилей</h2>
+
+<h3>Варианты испрользования ngStyle</h3>
+
+<div [ngStyle] = "styles">
+  Набор стилей в виде объекта <br>
+  <h5>[ngStyle] = "styles"</h5>
+
+</div>
+
+
+<div [ngStyle] = "getStyles()">
+  Набор стилей, возвращаемых методом <br>
+  <h5>[ngStyle] = "getStyles()"</h5>
+</div>
+
+<div>
+  <label>
+    <input type="checkbox" [(ngModel)]="isHighlighted">
+Меняем значение стилей
+  </label>
+</div>
+
+<div [ngStyle] = "{'background-color' : isHighlighted ? 'red' : 'gray',
+'color' : isHighlighted ? 'black' : 'white'}">
+Значение свойств по условию
+
+</div>

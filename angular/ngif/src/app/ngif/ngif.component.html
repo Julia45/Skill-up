@@ -1,0 +1,27 @@
+<h2>Структурная директива ngIf</h2>
+
+<h3>Разница между ngIF и display:none</h3>
+
+<button (click) = "toggleVisibility()">Показать\скрыть</button>
+
+<div *ngIf = "isShown">
+  <h5>*ngIf = "showBlock"</h5>
+</div>
+
+<div [style.display] = "isShown ? 'block' : 'none'">
+  <h5>[style.display] = "isShown ? 'block' : 'none'"</h5>
+</div>
+
+<hr>
+
+<h3>*ngIf = "showBlock" then thenBlock else elseBlock</h3>
+
+<div *ngIf = "isShown; then thenBlock else elseBlock"></div>
+
+<ng-template #thenBlock>
+  <h5>thenBlock</h5>
+</ng-template>
+
+<ng-template #elseBlock>
+  <h5>elseBlock</h5>
+</ng-template>

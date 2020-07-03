@@ -1,0 +1,25 @@
+<h2>Двунаправленная привязка данных</h2>
+
+<h3>Примеры работы директивы ngModel</h3>
+
+<label> X:
+
+  <input type="number" value="значение Х"
+  [(ngModel)] = "xValue"
+  (click) = "calculate()"
+  (keyup) = "calculate()">
+
+</label>
+
+<label> Y:
+
+  <input type="number" value="значение Y"
+  [(ngModel)] = "yValue"
+  (click) = "calculate()"
+  (keyup) = "calculate()">
+
+</label>
+
+<button (click) = "reset()">сбросить</button>
+
+<h5>Результат: {{result}}</h5>

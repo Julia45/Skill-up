@@ -1,0 +1,11 @@
+<h4>Информация о человеке</h4>
+
+<div>Имя: {{personName}}</div>
+
+<div>Возраст: {{personAge}}</div>
+
+<div>Изменить возраст
+  <button (click)="increment()" >+{{personAgeStep}}</button>
+  <button (click)="decrement()">-{{personAgeStep}}</button>
+
+</div>

@@ -1,0 +1,12 @@
+h1 {
+  color: pink
+}
+
+:host {
+  display: block;
+  margin-bottom: 50px;
+}
+
+:host /deep/ span{
+  border-bottom: 1px solid pink;
+}

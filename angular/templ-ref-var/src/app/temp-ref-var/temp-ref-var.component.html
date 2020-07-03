@@ -1,0 +1,19 @@
+<h2>Template Reference Valiable</h2>
+
+<h3>Usage Example</h3>
+
+<label>X:
+  <input #xInput type="number" placeholder="X value"
+  (click) = "sum(xInput.value, yInput.value)">
+</label>
+
+
+<label>Y:
+  <input  #yInput type="number" placeholder="Y value"
+  (click) = "sum(xInput.value, yInput.value)">
+</label>
+
+<button (click) = "sum(xInput.value, yInput.value)">Посчитать</button>
+
+<b>Result: {{result}}</b>
+

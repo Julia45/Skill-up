@@ -1,0 +1,10 @@
+<h2>Двустороння привязка данных</h2>
+
+<h3>Директива под капотом</h3>
+
+<label>
+  <input type="text" id = "first" placeholder="Начните вводить любой текст"
+  [value] = "currentValue"
+  (input) = "currentValue = $event.target.value">
+  {{currentValue}}
+</label>

@@ -1,0 +1,25 @@
+<h2>Привязка классов</h2>
+
+<h3>Переключение классов</h3>
+
+<div class="{{currentClassList}}">Классы блока: {{currentClassList}}</div>
+
+<button (click) = "toggleClassList()">Добавить\убрать оформление</button>
+
+<h3>Переключение классов по отдельности</h3>
+
+<div
+  [class.border] = "isBorder"
+  [class.border-danger] = "isBorder"
+  [class.bg-success] = "isBackground"
+  [class.text-warning] = "isTextHighlighted"
+  [class.rounded] = "isRounded"
+  [class.p-3] = "isPadding">
+  Классы блока по отдельности
+</div>
+
+<button (click) = "toggleBackground()">background</button>
+<button (click) = "toggleBorder()">border</button>
+<button (click) = "toggleTextHighlighted()">text highlighted</button>
+<button (click) = "toggleRounded()">rounded</button>
+<button (click) = "togglePadding()">padding</button>
